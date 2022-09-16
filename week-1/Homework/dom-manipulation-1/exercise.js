@@ -82,16 +82,33 @@ Task 5
 
 When the 'Larger links!' button is clicked, the text of all links on the page should increase.
 */
+const LargeTextBtn=document.querySelector("#largerLinksBtn");
+LargeTextBtn.addEventListener("click", function(){
+const alink=document.querySelectorAll("a");
+for(i=0;i<alink.length;i++)
+alink[i].style.fontSize = "x-large";
 
-
+}
+)
 /*
 Task 6
 ======
 
 Using the same function in Task 4,
-When the 'Add' button is clicked, get the text inside the input field and create a new paragraph in the "LEARN MORE" section
-Also clear the text inside the input field
+When the 'Add' button is clicked, get the text inside the input field and create a new paragraph in 
+the "LEARN MORE" section. Also clear the text inside the input field
 */
+const Add=document.querySelector("#addArticleBtn");
+Add.addEventListener("click", function(){
+    const pElement=document.createElement("para");
+    const ArticleTxt=document.querySelector(".form-control").value;  
+pElement.innerText =ArticleTxt ; 
+    const main = document.querySelector("#mainArticles");
+    main.appendChild(pElement);
+ 
+
+}
+);
 
 /*
 Task 7
@@ -101,4 +118,16 @@ Create an array of 5 different colors.
 Using the same function in Task 3, every time the 'Change colour' button is clicked, the background color will be changed with the next color in the array.
 The next color when you are in the last color of the array will be the first color again.
 */
+/*
+const alertBtn1=document.querySelector("#bgrChangeBtn");
 
+alertBtn1.addEventListener("click", function() {
+    let colorArray =["red","blue","green","grey","orange","white"]
+
+    colorArray.forEach(function(item){
+     
+         const fullbody = document.querySelector("body")
+             
+        fullbody.style.backgroundColor = item;
+})
+})*/
