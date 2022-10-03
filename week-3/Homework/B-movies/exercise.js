@@ -7,7 +7,9 @@ Create a function called "showMovies" that
 - iterates through the "movies" array and
 - for each movie, it creates a <p> element with the movie title and director and append it to the #all-movies div.
 - it sets the innerText of the #movies-number element to the total number of the movies in the array "movies"
+*/
 
+/*
 Task 2
 Amend your function above to only show movies after 1 second. Remember to use setTimeout to achieve that
 Create a new function called "addMovie"
@@ -60,8 +62,22 @@ var movies = [
 
 // create showMovies function
 
+function showMovies(moviesList) {
+  const createPara = (list) => {
+    const para = document.createElement("p");
+    para.innerHTML = list;
+    return para;
+  };
+  const moviesID = document.querySelector("#all-movies");
+  const moviesElements = moviesList.map((e) =>
+    createPara(`${e.title} - ${e.director}`)
+  );
+
+  moviesElements.forEach((node) => moviesID.appendChild(node));
+}
+
+showMovies(movies);
 
 // create a new movie object for your favorite movie
-
 
 // create addMovies function

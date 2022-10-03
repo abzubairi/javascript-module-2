@@ -14,7 +14,24 @@
  * </div>
  */
 function exerciseOne(arrayOfPeople) {
-  let content = document.querySelector("#content");
+  const div = document.querySelector("#content");
+  const createH1 = (content) => {
+    const h1 = document.createElement("h1");
+    h1.innerHTML = content;
+    return h1;
+  };
+
+  const h1Elements = arrayOfPeople.map((person) => createH1(person.name));
+  h1Elements.forEach((node) => content.appendChild(node));
+
+  const createH2 = (e) => {
+    const h2 = document.createElement("h2");
+    h2.innerHTML = e;
+    return h2;
+  };
+
+  const h2Elements = arrayOfPeople.map((person) => createH2(person.job));
+  h2Elements.forEach((node) => content.appendChild(node));
 }
 
 /**
@@ -74,7 +91,7 @@ function exerciseThree(books) {
 let people = [
   { name: "Chris", job: "Teacher" },
   { name: "Joanna", job: "Student" },
-  { name: "Boris", job: "Prime Minister" }
+  { name: "Boris", job: "Prime Minister" },
 ];
 
 exerciseOne(people);
@@ -87,18 +104,18 @@ const books = [
   {
     title: "The Design of Everyday Things",
     author: "Don Norman",
-    alreadyRead: false
+    alreadyRead: false,
   },
   {
     title: "The Most Human Human",
     author: "Brian Christian",
-    alreadyRead: true
+    alreadyRead: true,
   },
   {
     title: "The Pragmatic Programmer",
     author: "Andrew Hunt",
-    alreadyRead: true
-  }
+    alreadyRead: true,
+  },
 ];
 
 exerciseThree(books);
