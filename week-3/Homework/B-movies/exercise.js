@@ -76,8 +76,19 @@ function showMovies(moviesList) {
   moviesElements.forEach((node) => moviesID.appendChild(node));
 }
 
-showMovies(movies);
-
+setTimeout(showMovies, 1000, movies);
+var newMovie = {
+  title: "Vampire Dairies",
+  director: "Kavin & Julie",
+  type: "season",
+  haveWatched: true,
+};
+addMovie(newMovie);
 // create a new movie object for your favorite movie
+
+function addMovie(movie) {
+  movies.push(movie);
+  setTimeout(showMovies, 2000, movies);
+}
 
 // create addMovies function
