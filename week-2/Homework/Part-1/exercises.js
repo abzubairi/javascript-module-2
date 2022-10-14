@@ -42,7 +42,21 @@ function exerciseOne(arrayOfPeople) {
  *
  */
 function exerciseTwo(shopping) {
-  //Write your code in here
+  let content = document.querySelector("#content");
+
+  const unorderedList = document.createElement("ul");
+
+  const ul = content.appendChild(unorderedList);
+
+  const createLi = (list) => {
+    const li = document.createElement("li");
+    li.innerHTML = list;
+    return li;
+  };
+
+  const liElements = shopping.map((grocery) => createLi(grocery));
+
+  liElements.forEach((node) => ul.appendChild(node));
 }
 
 /**
@@ -75,7 +89,40 @@ function exerciseTwo(shopping) {
     The end result should look something like this: https://hyf-js2-week1-makeme-ex1-demo.herokuapp.com/
 **/
 function exerciseThree(books) {
-  //Write your code in here
+  let h1 = document.createElement("h1");
+  h1.textContent = "BookList";
+  let content = document.querySelector("#content");
+  let ul = document.createElement("ul");
+  content.appendChild(h1);
+  content.appendChild(ul);
+
+  let img1 = "./download (1).jpeg";
+  let img2 = "./download (2).jpeg";
+  let img3 = "./download.jpeg";
+  let imgs = [img1, img2, img3];
+
+  ul.style.listStyle = "none";
+  ul.style.display = "flex";
+  h1.style.marginLeft = "50px";
+  h1.style.marginBottom = "-20px";
+
+  books.forEach((book, index) => {
+    let p = document.createElement("p");
+    let li = document.createElement("li");
+
+    ul.appendChild(li);
+    li.appendChild(p);
+
+    p.textContent = `${book.title} - ${book.author}`;
+    li.style.backgroundColor = book.alreadyRead ? "green" : "red";
+
+    li.style.margin = "15px";
+    li.style.padding = "10px";
+    li.style.minWidth = "350px";
+    let img = document.createElement("img");
+    img.src = imgs[index];
+    li.appendChild(img);
+  });
 }
 
 //
